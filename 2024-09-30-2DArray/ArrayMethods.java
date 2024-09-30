@@ -50,5 +50,9 @@ public class ArrayMethods {
   public static void main(String[] args) {
     int[][] arr1 = {{1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10}};
     System.out.println("Expected true and method returned " + arrToString(arr1).equals("[[1, 2, 3], [4, 5, 6, 7], [8, 9, 10]]"));
+    System.out.println("Expected 55 and method returned " + arr2DSum(arr1));
+    int[][] rectangularArr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int[][] expectedArr = {{1, 4, 7}, {2, 5, 8}, {3, 8, 9}};
+    System.out.println("Expected " + arrToString(expectedArr) + " Returned " + arrToString(swapRC(rectangularArr)));
   }
 }
