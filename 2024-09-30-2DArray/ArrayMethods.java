@@ -64,7 +64,20 @@ public class ArrayMethods {
   //-When the row number is the same as the column number replace
   //that negative with the value 1
   //-All other negatives replace with 0
-  public static void replaceNegative(int[][] vals){ }
+  public static void replaceNegative(int[][] vals){
+    for (int i = 0; i < vals.length; i++){
+      for (int n = 0; n < vals[i].length; n++){
+        if (vals[i][n] < 0){
+          if (i == n){
+            vals[i][n] = 1;
+          }
+          else{
+            vals[i][n] = 0;
+          }
+        }
+      }
+    }
+  }
 
   //4. Make a copy of the given 2d array.
   //When testing : make sure that changing the original does NOT change the copy.
@@ -90,7 +103,7 @@ public class ArrayMethods {
     rectangularArr = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
     expectedArr = new int[][] {{1, 5, 9}, {2, 6, 10}, {3, 7, 11}, {4, 8, 12}};
     System.out.println("Expected " + arrToString(expectedArr) + " Returned " + arrToString(swapRC(rectangularArr)));
-    int[][] arr3 = {{-1, 0, 1}, {-2, 5, -8, 10}, {-4}};
+    int[][] arr3 = {{-1, 0, 1}, {-2, -5, -8, 10}, {-4}};
     System.out.println("original array is " + arrToString(arr3));
     replaceNegative(arr3);
     System.out.println("modified array is " + arrToString(arr3));
