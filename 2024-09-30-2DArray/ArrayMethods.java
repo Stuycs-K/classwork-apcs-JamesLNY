@@ -84,28 +84,52 @@ public class ArrayMethods {
   //DO NOT use any built in methods that "copy" an array.
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
+  public static int[] copy(int[] nums) {
+    int[] result = new int[nums.length];
+    for (int i = 0; i < nums.length; i++) {
+      result[i] = nums[i];
+    }
+    return result;
+  }
+
   public static int[][] copy(int[][] nums){
-    return null;//placeholder so it compiles
+    int[][] result = new int[nums.length][];
+    for (int i = 0; i < nums.length; i++) {
+      result[i] = copy(nums[i]);
+    }
+    return result;
   }
 
   public static void main(String[] args) {
-    int[][] arr1 = {{1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10}};
     System.out.println("Testing arrToString(int[][])");
+    int[][] arr1 = {{1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10}};
     System.out.println("Expected true Returned " + arrToString(arr1).equals("[[1, 2, 3], [4, 5, 6, 7], [8, 9, 10]]"));
+
     System.out.println("Testing arr2DSum()");
     System.out.println("Expected 55 Returned " + arr2DSum(arr1));
     arr1 = new int[][] {{}, {}};
     System.out.println("Expected 0 Returned " + arr2DSum(arr1));
+
+    System.out.println("Testing swapRC()");
     int[][] rectangularArr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int[][] expectedArr = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
-    System.out.println("Testing swapRC()");
     System.out.println("Expected " + arrToString(expectedArr) + " Returned " + arrToString(swapRC(rectangularArr)));
     rectangularArr = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
     expectedArr = new int[][] {{1, 5, 9}, {2, 6, 10}, {3, 7, 11}, {4, 8, 12}};
     System.out.println("Expected " + arrToString(expectedArr) + " Returned " + arrToString(swapRC(rectangularArr)));
-    int[][] arr3 = {{-1, 0, 1}, {-2, -5, -8, 10}, {-4}};
-    System.out.println("original array is " + arrToString(arr3));
-    replaceNegative(arr3);
-    System.out.println("modified array is " + arrToString(arr3));
+    
+    System.out.println("Testing arrToString()");
+    int[][] arr2 = {{-1, 0, 1}, {-2, -5, -8, 10}, {-4}};
+    System.out.println("Original array is " + arrToString(arr2));
+    replaceNegative(arr2);
+    System.out.println("Modified array is " + arrToString(arr2));
+
+    System.out.println("Testing copy(int[])");
+    System.out.println("Expected " + arrToString(arr2[0]) + " Returned " + arrToString(copy(arr2[0])));
+    System.out.println("Expected not " + arr2[0] + " Returned " + copy(arr2[0]));
+
+    System.out.println("Testing copy(int[][])");
+    System.out.println("Expected " + arrToString(arr2) + " Returned " + arrToString(copy(arr2)));
+    System.out.println("Expected not " + arr2 + " Returned " + copy(arr2));
   }
 }
