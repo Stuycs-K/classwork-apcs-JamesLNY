@@ -9,9 +9,10 @@ public class ArrayDemo{
     System.out.println("Testing arrToString()");
     arr = new int[] {1, 4, 5, 123, 12, 37};
     System.out.println("Expected " + Arrays.toString(arr) + " Returned " + arrToString(arr));
-    // The only functions that I didn't finish and test in the previous assignment
-    // are htmlTable and
-
+    int[][] 2dArr;
+    System.out.println("Testing countZeros2D()");
+    arr = new int[][] {{1, 2, 3}, {4, 5, 6, 7}, {8, 0}};
+    System.out.println("Expected 1 Returned " + countZeros2D(arr));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
