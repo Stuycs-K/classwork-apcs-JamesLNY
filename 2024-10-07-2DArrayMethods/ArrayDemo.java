@@ -41,12 +41,13 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
+    int count = 0;
     for (int[] arr : nums) {
       for (int y : arr) {
-
+        if (y == 0) count++;
       }
     }
-    return 0;
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
