@@ -5,6 +5,12 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+    int[] arr;
+    System.out.println("Testing arrToString()");
+    arr = new int[] {1, 4, 5, 123, 12, 37};
+    System.out.println("Expected " + Arrays.toString(arr) + " Returned " + arrToString(arr));
+    // The only functions that I didn't finish and test in the previous assignment
+    // are htmlTable and
 
   }
 
@@ -93,7 +99,13 @@ public class ArrayDemo{
   //   You may assume the array is rectangular and neither rows nor cols is 0.
   //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int[][] newArr = new int[nums[0].length][nums.length];
+    for (int i = 0; i < nums.length; i++) {
+      for (int n = 0; n < nums[0].length; n++) {
+        newArr[n][i] = nums[i][n];
+      }
+    }
+    return newArr;
   }
 
   //6. Make an HTML table by putting a table tag around the entire 2d array,
@@ -104,38 +116,5 @@ public class ArrayDemo{
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
     return "";
-  }
-
-  public static void main(String[] args) {
-    int[][] arr;
-
-    System.out.println("Testing arrToString(int[][])");
-    arr = new int[][] {{1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10}};
-    System.out.println("Expected true Returned " + arrToString(arr).equals("[[1, 2, 3], [4, 5, 6, 7], [8, 9, 10]]"));
-
-    System.out.println("Testing arr2DSum()");
-    System.out.println("Expected 55 Returned " + arr2DSum(arr));
-    arr = new int[][] {{}, {}};
-    System.out.println("Expected 0 Returned " + arr2DSum(arr));
-
-    System.out.println("Testing swapRC()");
-    arr = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    System.out.println("Expected [[1, 4, 7], [2, 5, 8], [3, 6, 9]] Returned " + arrToString(swapRC(arr)));
-    arr = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-    System.out.println("Expected [[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]] Returned " + arrToString(swapRC(arr)));
-
-    System.out.println("Testing arrToString()");
-    arr = new int[][] {{-1, 0, 1}, {-2, -5, -8, 10}, {-4}};
-    System.out.println("Original array is " + arrToString(arr));
-    replaceNegative(arr);
-    System.out.println("Modified array is " + arrToString(arr));
-
-    System.out.println("Testing copy(int[])");
-    System.out.println("Expected " + arrToString(arr[0]) + " Returned " + arrToString(copy(arr[0])));
-    System.out.println("Expected not " + arr[0] + " Returned " + copy(arr[0]));
-
-    System.out.println("Testing copy(int[][])");
-    System.out.println("Expected " + arrToString(arr) + " Returned " + arrToString(copy(arr)));
-    System.out.println("Expected not " + arr + " Returned " + copy(arr));
   }
 }
