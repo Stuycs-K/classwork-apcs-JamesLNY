@@ -123,7 +123,19 @@ public class ArrayDemo{
   //   Note there is no whitespace in the string, it all one line with no spaces/tabs.
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
+  public static String addTags(String tag, String value) {
+    return "<" + tag + ">" + value + "</" + tag + ">";
+  }
+  
   public static String htmlTable(int[][]nums){
-    return "";
+    String output = "";
+    for (int[] num : nums) {
+      String row = "";
+      for (int n : num) {
+        row += addTags("td", "" + n);
+      }
+      output += addTags("tr", row);
+    }
+    return addTags("table", output);
   }
 }
