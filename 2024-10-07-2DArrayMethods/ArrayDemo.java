@@ -15,6 +15,17 @@ public class ArrayDemo{
     System.out.println("Testing countZeros2D()");
     twoDimensionalArr = new int[][] {{1, 2, 3}, {4, 5, 6, 7}, {8, 0}};
     System.out.println("Expected 1 Returned " + countZeros2D(twoDimensionalArr));
+    twoDimensionalArr = new int[][] {{1, 0, 3}, {4, 0, 1}, {8, 0}};
+    System.out.println("Expected 3 Returned " + countZeros2D(twoDimensionalArr));
+    twoDimensionalArr = new int[][] {{0, 0, 1}, {0, 5, 6, 7}, {0}};
+    System.out.println("Expected 4 Returned " + countZeros2D(twoDimensionalArr));
+    twoDimensionalArr = new int[][] {{}, {}, {}};
+    System.out.println("Expected 0 Returned " + countZeros2D(twoDimensionalArr));
+    System.out.println("Testing htmlTable()");
+    String expectedValue;
+    twoDimensionalArr = new int[][] {{1, 2}, {2, 1, 2}};
+    expectedValue = "<table><tr><td>1</td><td>2</td></tr><tr><td>2</td><td>1</td><td>2</td></tr></table>";
+    System.out.println("Expected true Returned " + expectedValue.equals(htmlTable(twoDimensionalArr)));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
