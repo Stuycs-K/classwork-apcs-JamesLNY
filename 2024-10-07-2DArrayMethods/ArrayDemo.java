@@ -26,6 +26,14 @@ public class ArrayDemo{
     twoDimensionalArr = new int[][] {{1, 2}, {2, 1, 2}};
     expectedValue = "<table><tr><td>1</td><td>2</td></tr><tr><td>2</td><td>1</td><td>2</td></tr></table>";
     System.out.println("Expected true Returned " + expectedValue.equals(htmlTable(twoDimensionalArr)));
+    twoDimensionalArr = new int[][] {{1,2}, {3}};
+    expectedValue = "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>";
+    System.out.println("Expected true Returned " + expectedValue.equals(htmlTable(twoDimensionalArr)));
+    twoDimensionalArr = new int[][] {{}};
+    // "Put <table> around the 2d Array and <tr> around the rows"
+    // I think there is a row and 2d Array, but no values
+    expectedValue = "<table><tr></tr></table>";
+    System.out.println("Expected true Returned " + expectedValue.equals(htmlTable(twoDimensionalArr)));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
