@@ -21,5 +21,12 @@ public class Demo{
     System.out.println( distance(p1,p2));
     System.out.println( Point.distance(p1,p2));
     System.out.println( p1.distanceTo(p2));
+    Point triangleA = new Point(0, 0);
+    Point triangleB = new Point(0.5, Math.sqrt(3) * 0.5);
+    Point triangleC = new Point(1, 0);
+    System.out.println("Testing side lengths of triangle");
+    System.out.println(distance(triangleA, triangleB));
+    System.out.println(distance(triangleB, triangleC));
+    System.out.println(distance(triangleC, triangleA));
   }
 }
