@@ -29,7 +29,9 @@ public class Point{
   Write this method FOURTH, go to the main and do that one first.
   */
   public double distanceTo(Point other){
-    return 0.0;
+    double distanceX = x - other.getX();
+    double distanceY = y - other.getY();
+    return Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
   }
 
   /*
