@@ -19,7 +19,7 @@ public class Demo{
     Point p4 = new Point(p3);
     System.out.println("Expected " + p3 + " Returned " + p4);
     System.out.println( distance(p1,p2));
-    //System.out.println( Point.distance(p1,p2));
+    System.out.println( Point.distance(p1,p2));
     System.out.println( p1.distanceTo(p2));
   }
 }
