@@ -1,6 +1,9 @@
 // The speak() method for Bird printed "My name is The Mighty Duck"
 // instead of "My name is Duck"
 // And the speak() method for Animal printed the same thing
+// Bird is-a Animal, which means that a bird constructor can be used in place of an Animal constructor
+// when defining an animal. However, Animal is not a subclass for Bird, and not all animals are birds, so
+// it doesn't make sense to use an animal constructor for a bird, because a bird requires more parameters than an animal
 
 public class Driver{
   public static void main(String[] args){
