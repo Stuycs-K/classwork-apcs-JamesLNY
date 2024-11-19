@@ -9,36 +9,38 @@ public class Driver1Challenge {
     String stringInput;
     try {
       File file = new File("Input1.txt");
-      Scanner input = new Scanner(file);
-      while (input.hasNext()) {
-        stringInput = input.next();
-        if (stringInput.charAt(0) == 'L') {
-          direction++;
-          if (direction == 4) direction = 0;
-        } else {
-          direction--;
-          if (direction == -1) direction = 3;
-        }
-        stringInput = stringInput.substring(1, stringInput.length() - 1);
-        for (int i = 0; i < Integer.parseInt(stringInput); i++) {
-          if (arr[xCord][yCord] == 1) return Math.abs(xCord - 500) + Math.abs(yCord - 500);
-          arr[xCord][yCord] = 1;
-          switch (direction) {
-            case 0:
-              xCord++;
-              break;
-            case 1:
-              yCord++;
-              break;
-            case 2:
-              xCord--;
-              break;
-            case 3:
-              yCord--;
+      try (Scanner input = new Scanner(file)) {
+        while (input.hasNext()) {
+          stringInput = input.next();
+          if (stringInput.charAt(0) == 'L') {
+            direction++;
+            if (direction == 4) direction = 0;
+          } else {
+            direction--;
+            if (direction == -1) direction = 3;
+          }
+          stringInput = stringInput.substring(1, stringInput.length() - 1);
+          for (int i = 0; i < Integer.parseInt(stringInput); i++) {
+            if (arr[xCord][yCord] == 1) return Math.abs(xCord - 500) + Math.abs(yCord - 500);
+            arr[xCord][yCord] = 1;
+            switch (direction) {
+              case 0:
+                xCord++;
+                break;
+              case 1:
+                yCord++;
+                break;
+              case 2:
+                xCord--;
+                break;
+              case 3:
+                yCord--;
+            }
           }
         }
+      } catch (NumberFormatException e) {
+        e.printStackTrace();
       }
-      input.close();
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
     }
