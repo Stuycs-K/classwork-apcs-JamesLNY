@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Driver2 {
   public static void main(String[] args) {
-    int number = 5;
+    int xIndex = 1, yIndex = 1;
     String stringInput, result = "";
     try {
       File file = new File("Input2.txt");
@@ -15,21 +15,22 @@ public class Driver2 {
           char c = stringInput.charAt(i);
           switch (c) {
             case 'U':
-              number -= 3;
+              if (yIndex > 0) yIndex--;
               break;
             case 'L':
-              number--;
+              if (xIndex > 0) xIndex--;
               break;
             case 'R':
-              number++;
+              if (xIndex < 2) xIndex++;
               break;
             case 'D':
-              number += 3;
+              if (yIndex < 2) yIndex++;
               break;
           }
         }
-        result += number;
+        result += xIndex + 1 + yIndex * 3;
       }
+      input.close();
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
     }
