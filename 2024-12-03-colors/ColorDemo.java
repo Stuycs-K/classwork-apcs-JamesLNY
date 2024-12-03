@@ -5,12 +5,12 @@ public class ColorDemo {
   public static final String RESET = "\u001b[0m";
   public static void colorForeground(int color, boolean bright) {
     int modifier = 30;
-    if (bright) modifier += 10;
+    if (bright) modifier += 60;
     System.out.print("\u001b[" + (modifier + color) + "m");
   }
   public static void colorBackground(int color, boolean bright){
-    int modifier = 90;
-    if (bright) modifier += 10;
+    int modifier = 40;
+    if (bright) modifier += 60;
     System.out.print("\u001b[" + (modifier + color) + "m");
   }
   public static int getColor(String color) {
