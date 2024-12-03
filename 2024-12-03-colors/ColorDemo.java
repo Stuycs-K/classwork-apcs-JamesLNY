@@ -8,10 +8,13 @@ public class ColorDemo {
     if (bright) modifier += 60;
     System.out.print("\u001b[" + (modifier + color) + "m");
   }
-  public static void colorBackground(int color, boolean bright){
+  public static void colorBackground(int color, boolean bright) {
     int modifier = 40;
     if (bright) modifier += 60;
     System.out.print("\u001b[" + (modifier + color) + "m");
+  }
+  public static void colorBackgroundRGB(int r, int g, int b) {
+    System.out.print("\u001b[48;2;" + r + ";" + g + ";" + b + "m");
   }
   public static int getColor(String color) {
     String[] colors = {"Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"};
@@ -20,11 +23,27 @@ public class ColorDemo {
     }
     return -1;
   }
+  public static void moveCursor(int r, int c){
+    System.out.print("\u001b[" + r + ";" + c + "f");
+  }
+  public static void sleep(int milli){
+    try {
+      Thread.sleep(milli);
+    } catch(Exception e) {}
+  }
   public static void main(String[] args) {
-    for (int i = 0; i < 8; i++) {
-      colorBackground(i, false);
-      System.out.print(" ");
+    for (int b = 0; b < 256; b += 32) {
+      for (int r = 0; r < 256; r += 32) {
+        for (int g = 0; g < 256; g += 32) {
+          colorBackgroundRGB(r, g, b);
+          System.out.print("  ");
+        }
+        System.out.print(RESET);
+        System.out.println();
+      }
+      System.out.print(RESET);
+      sleep(1000);
+      moveCursor(0, 0);
     }
-    System.out.print(RESET);
   }
 }
