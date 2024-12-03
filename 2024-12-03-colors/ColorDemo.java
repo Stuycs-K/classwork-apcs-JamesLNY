@@ -12,6 +12,12 @@ public class ColorDemo {
     if (bright) modifier += 10;
     System.out.print( "\u001b[" + (modifier + color) + "m");
   }
+  public static int getColor(String color) {
+    String[] colors = {"Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"};
+    for (int i = 0; i < colors.size(); i++) {
+      if (colors[i].equals(color)) return i;
+    }
+  }
   public static void main(String[] args) {
 
   }
