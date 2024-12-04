@@ -33,9 +33,11 @@ public class Driver {
     }
     // Part 3
     for (int i = 2; i < 79; i++) {
-      colorSquare(i, 3, Text.BLUE + 60);
+      Text.go(3, i);
+      Text.color(Text.background(Text.BLUE+60));
+      System.out.print('-');
     }
-    Text.go(31, 0);
+    Text.go(30, 0);
     System.out.print(Text.RESET);
   }
 }
