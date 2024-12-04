@@ -32,9 +32,15 @@ public class ColorDemo {
     } catch(Exception e) {}
   }
   public static void main(String[] args) {
-    for (int b = 0; b < 256; b += 32) {
-      for (int r = 0; r < 256; r += 32) {
-        for (int g = 0; g < 256; g += 32) {
+    System.out.print(CLEAR_SCREEN);
+    System.out.print(HIDE_CURSOR);
+    for (int b = 0; b < 256; b += 16) {
+      moveCursor(4, 0);
+      sleep(5);
+      for (int r = 0; r < 256; r += 16) {
+        sleep(5);
+        for (int g = 0; g < 256; g += 16) {
+          sleep(5);
           colorBackgroundRGB(r, g, b);
           System.out.print("  ");
         }
@@ -42,8 +48,9 @@ public class ColorDemo {
         System.out.println();
       }
       System.out.print(RESET);
-      sleep(1000);
-      moveCursor(0, 0);
     }
+    System.out.print(RESET);
+    moveCursor(0, 0);
+    System.out.print(SHOW_CURSOR);
   }
 }
