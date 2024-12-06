@@ -32,6 +32,15 @@ public class Wizard extends Adventurer {
     int healAmount = (int) (Math.random() * 3) + 2;
     healAmount = Math.min(other.getmaxHP(), other.getHP() + healAmount);
     other.setHP(healAmount);
-    return getName() " casted a healing spell on " + other.getName() + ", restoring " + healAmount + " hit points!";
+    return getName() + " casted a healing spell on " + other.getName() + ", restoring " + healAmount + " hit points!";
+  }
+  public String support() {
+    int boost = (int) (Math.random() * 2);
+    if (boost == 1) {
+      setmaxHP(getmaxHP + 1);
+      return getName() + " drank a magic potion, which increased their max HP by 1!";
+    } else {
+      return getName() + " accidentally drank water, which obviously didn't do anything!";
+    }
   }
 }
