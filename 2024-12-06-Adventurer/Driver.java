@@ -1,7 +1,7 @@
 public class Driver {
   public static void main(String[] args) {
-    Wizard Jerry = new Wizard("Jerry");
-    Wizard Albert = new Wizard("Albert", 20, 80);
+    Adventurer Jerry = new Wizard("Jerry");
+    Adventurer Albert = new Wizard("Albert", 20, 80);
     System.out.print("Testing Wizard.getSpecialName(): ");
     System.out.println(Jerry.getSpecialName().equals("mana") ? "PASSED" : "FAILED");
     System.out.print("Testing Wizard.getSpecialMax(): ");
