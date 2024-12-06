@@ -26,6 +26,12 @@ public class Wizard extends Adventurer {
   public String attack(Adventurer other) {
     int attackDamage = (int) (Math.random() * 3) + 2;
     other.applyDamage(attackDamage);
-    return getName() + " threw a fireball at " other.getName() ", dealing " + attackDamage + " damage!";
+    return getName() + " threw a fireball at " + other.getName() + ", dealing " + attackDamage + " damage!";
+  }
+  public String support(Adventurer other) {
+    int healAmount = (int) (Math.random() * 3) + 2;
+    healAmount = Math.min(other.getmaxHP(), other.getHP() + healAmount);
+    other.setHP(healAmount);
+    return getName() " casted a healing spell on " + other.getName() + ", restoring " + healAmount + " hit points!";
   }
 }
