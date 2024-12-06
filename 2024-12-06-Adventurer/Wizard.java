@@ -1,6 +1,6 @@
 public class Wizard extends Adventurer {
   private int mana;
-  private int maxMana
+  private int maxMana;
   public Wizard(String name) {
     super(name, 10);
     mana = 10;
@@ -37,29 +37,29 @@ public class Wizard extends Adventurer {
   public String support() {
     int boost = (int) (Math.random() * 2);
     if (boost == 1) {
-      setmaxHP(getmaxHP + 1);
+      setmaxHP(getmaxHP() + 1);
       return getName() + " drank a magic potion, which increased their max HP by 1!";
     } else {
       return getName() + " accidentally drank water, which obviously didn't do anything!";
     }
   }
   public String specialAttack(Adventurer other) {
-    if (getSpecial < 10) return getName() + " doesn't have enough mana to cast their special.";
+    if (getSpecial() < 10) return getName() + " doesn't have enough mana to cast their special.";
     mana = 0;
     int random = (int) (Math.random() * 3);
     switch (random) {
       case 0:
         other.setHP(1);
-        return getName() + " consumed 10 mana to summon a tornado on top of " + other.getName() + ", reducing them to 1 HP!"
+        return getName() + " consumed 10 mana to summon a tornado on top of " + other.getName() + ", reducing them to 1 HP!";
       case 1:
         int change = Math.min(1, other.getmaxHP() - 5);
         other.setmaxHP(change);
-        other.setHP(Math.min(other.getMaxHP(), other.getHP()));
+        other.setHP(Math.min(other.getmaxHP(), other.getHP()));
         return getName() + " consumed 10 mana to throw a lightning bolt at " + other.getName() + ", which reduced their max HP to " + change;
       default:
         other.setmaxHP(2);
-        other.setHP(2)''
-        return getName() + " consumed 10 mana to turn " + other.getName() + " into a duck, setting both their max HP and HP to 2!"
+        other.setHP(2);
+        return getName() + " consumed 10 mana to turn " + other.getName() + " into a duck, setting both their max HP and HP to 2!";
     }
   }
 }
