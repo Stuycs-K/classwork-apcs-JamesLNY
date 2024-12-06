@@ -12,7 +12,7 @@ public class Wizard extends Adventurer {
     this.maxMana = mana;
   }
   public String getSpecialName() {
-    return "mana";
+    return "Mana";
   }
   public int getSpecial() {
     return mana;
@@ -30,9 +30,10 @@ public class Wizard extends Adventurer {
   }
   public String support(Adventurer other) {
     int healAmount = (int) (Math.random() * 3) + 2;
+    int displayedHealAmount = Math.min(other.getmaxHP() - healAmount, healAmount);
     healAmount = Math.min(other.getmaxHP(), other.getHP() + healAmount);
     other.setHP(healAmount);
-    return getName() + " casted a healing spell on " + other.getName() + ", restoring " + healAmount + " hit points!";
+    return getName() + " casted a healing spell on " + other.getName() + ", restoring " + displayedHealAmount + " hit points!";
   }
   public String support() {
     int boost = (int) (Math.random() * 2);
@@ -44,8 +45,8 @@ public class Wizard extends Adventurer {
     }
   }
   public String specialAttack(Adventurer other) {
-    if (getSpecial() < 10) return getName() + " doesn't have enough mana to cast their special.";
-    mana = 0;
+    if (getSpecial() < 10) return getName() + " tried to cast their special, but didn't have enough mana.";
+    mana -= 10;
     int random = (int) (Math.random() * 3);
     switch (random) {
       case 0:
