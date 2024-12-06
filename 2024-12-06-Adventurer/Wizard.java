@@ -11,4 +11,10 @@ public class Wizard extends Adventurer {
   public String getSpecialName() {
     return "mana";
   }
+  public int getSpecial() {
+    return mana;
+  }
+  public void setSpecial(int n) {
+    mana = n;
+  }
 }
