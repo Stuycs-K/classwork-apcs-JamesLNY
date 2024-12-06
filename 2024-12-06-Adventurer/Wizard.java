@@ -23,4 +23,9 @@ public class Wizard extends Adventurer {
   public int getSpecialMan() {
     return maxMana;
   }
+  public String attack(Adventurer other) {
+    int attackDamage = (int) (Math.random() * 3) + 2;
+    other.applyDamage(attackDamage);
+    return getName() + " threw a fireball at " other.getName() ", dealing " + attackDamage + " damage!";
+  }
 }
