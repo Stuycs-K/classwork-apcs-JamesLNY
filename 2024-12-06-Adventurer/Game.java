@@ -9,13 +9,14 @@ class Game {
       for (String str : validInputs) {
         if (str.equals(userInput)) return str;
       }
+      System.out.println("Please enter a valid input.");
     }
   }
 
   public static void main(String[] args) {
     Scanner userInput = new Scanner(System.in);
     String action;
-    System.out.println("Enter username: ");
+    System.out.print("Enter username: ");
     String userName = userInput.nextLine();
     System.out.println("Username is: " + userName);
     Adventurer player = new Wizard(userName);
@@ -48,7 +49,11 @@ class Game {
       }
     }
     if (enemy.getHP() <= 0) {
-      System.out.println(player.getName() + " won the fight!");
+      if (player.getHP() <= 0) {
+        System.out.println("Both players died! Noone won!");
+      } else {
+        System.out.println(player.getName() + " won the fight!");
+      }
     } else {
       System.out.println(enemy.getName() + " won the fight!");
     }
