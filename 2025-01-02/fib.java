@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 // 46 is the largest n such that fib(n) fits in an int and it is also the largest fibonacci number that can be calculated in under 10 seconds.
 
 public class fib {
